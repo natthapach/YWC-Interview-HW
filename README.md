@@ -1,7 +1,7 @@
 # YWC Interview Homework
 ## Deployment
 - deployment with firebase
-https://ywc-interview-hw.firebaseapp.com/result
+https://ywc-interview-hw.firebaseapp.com
 ## Feature
 - display result name
 - search and real-time show
