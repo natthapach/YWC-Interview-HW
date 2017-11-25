@@ -9,9 +9,13 @@ import { AppComponent } from './app.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { NameListComponent } from './name-list/name-list.component';
 import { NameInfoComponent } from './name-info/name-info.component';
+import { DisplatResultComponent } from './displat-result/displat-result.component';
 
 import { NamePoolService } from './shared/name-pool.service';
-import { DisplatResultComponent } from './displat-result/displat-result.component';
+import { SearchStatService } from './shared/search-stat.service';
+import { from } from 'rxjs/observable/from';
+import { DisplayResultComponent } from './display-result/display-result.component';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCXkXqCKZevGy1MgxkCpedzf2pT8cNEcA0",
@@ -27,7 +31,8 @@ export const firebaseConfig = {
     SearchFormComponent,
     NameListComponent,
     NameInfoComponent,
-    DisplatResultComponent
+    DisplatResultComponent,
+    DisplayResultComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [NamePoolService],
+  providers: [NamePoolService,
+    SearchStatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

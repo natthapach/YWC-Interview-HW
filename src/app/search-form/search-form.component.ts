@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable'
 import { AngularFireList, AngularFireObject } from 'angularfire2/database/interfaces';
+import { SearchStatService } from '../shared/search-stat.service';
 
 @Component({
   selector: 'app-search-form',
@@ -13,7 +14,8 @@ export class SearchFormComponent implements OnInit {
   @Output() searchSubmit = new EventEmitter();
   item: AngularFireList<any>;
 
-  constructor(private db:AngularFireDatabase) { }
+  constructor(private db:AngularFireDatabase, private state:SearchStatService) {
+  }
 
   ngOnInit() {
   }
@@ -26,22 +28,7 @@ export class SearchFormComponent implements OnInit {
 
   onClickBtn(event){
     event.preventDefault();
-    let subscription = this.db.object("search").snapshotChanges().subscribe(action=>{
-      let data = action.payload.val();
-      let n = data[this.searchText];
-      console.log("n ", n);
-      if(!n){
-        this.db.object("search").update({[this.searchText]:1});
-      }else{
-        this.db.object("search").update({[this.searchText]:++n});
-      }
-      subscription.unsubscribe();
-    });
-    // let data = {};
-    // let text = this.searchText;
-    // data[this.searchText] = "1";
-    // this.db.object("search").update(data);
-  
+    this.state.addSearchText(this.searchText);
     console.log("onClick");
   }
 
