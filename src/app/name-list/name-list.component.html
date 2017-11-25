@@ -1,0 +1,10 @@
+<div style="margin-top:20px">
+  <h1>{{ major.toUpperCase() }}</h1>
+  <div class="row">
+    <ng-container *ngFor="let name of names">
+      <div class="col-sm-12 col-md-4" *ngIf="name.major===this.major">
+        <app-name-info [name]="name"></app-name-info>
+      </div> 
+    </ng-container>
+  </div>
+</div>
