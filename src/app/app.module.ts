@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
+import { Routes, RouterModule } from '@angular/router';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { NamePoolService } from './shared/name-pool.service';
 import { SearchStatService } from './shared/search-stat.service';
 import { from } from 'rxjs/observable/from';
 import { DisplayResultComponent } from './display-result/display-result.component';
+import { DisplayStatComponent } from './display-stat/display-stat.component';
 
 
 export const firebaseConfig = {
@@ -25,6 +27,21 @@ export const firebaseConfig = {
   storageBucket: "ywc-interview-hw.appspot.com",
   messagingSenderId: "988499838697"
 };
+const appRoutes:Routes = [
+  {
+    path:"result",
+    component:DisplayResultComponent
+  },
+  {
+    path:"",
+    redirectTo:"/result",
+    pathMatch:"full"
+  },
+  {
+    path:"stat",
+    component:DisplayStatComponent
+  }
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,17 +49,20 @@ export const firebaseConfig = {
     NameListComponent,
     NameInfoComponent,
     DisplatResultComponent,
-    DisplayResultComponent
+    DisplayResultComponent,
+    DisplayStatComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     AngularFireDatabaseModule,
+    RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [NamePoolService,
-    SearchStatService],
+    SearchStatService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

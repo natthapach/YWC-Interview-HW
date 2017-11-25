@@ -1,11 +1,9 @@
-<div class="container" style="background: #dddddd">
-  <div class="row" >
-    <app-search-form #searchForm (searchSubmit)="onSearch($event)"></app-search-form>
-  </div>
-  <div>
-    <app-name-list  [names]="names" major="content"></app-name-list>
-    <app-name-list  [names]="names" major="design"></app-name-list>
-    <app-name-list [names]="names" major="marketing"></app-name-list>
-    <app-name-list  [names]="names" major="programming"></app-name-list>
-  </div>
+<div class="row" >
+  <app-search-form #searchForm (searchSubmit)="onSearch($event)"></app-search-form>
+</div>
+<div>
+  <app-name-list  [names]="names" major="content"></app-name-list>
+  <app-name-list  [names]="names" major="design"></app-name-list>
+  <app-name-list [names]="names" major="marketing"></app-name-list>
+  <app-name-list  [names]="names" major="programming"></app-name-list>
 </div>

@@ -28,12 +28,12 @@ export class DisplayResultComponent implements OnInit {
       next(value){
         console.log("subject " + value);
       }
-    })
+    });
     this.stream.subscribe({
       next(value){
         console.log("debounce " + value);
       }
-    })
+    });
 
   }
 
