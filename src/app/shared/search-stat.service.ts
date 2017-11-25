@@ -29,7 +29,7 @@ export class SearchStatService {
     });
   }
 
-  addSearchText(searchText:string):void{
+  public addSearchText(searchText:string){
     let subscription = this.db.object("search").snapshotChanges().subscribe(action=>{
       let data = action.payload.val();
       let n = data[searchText];
@@ -44,6 +44,10 @@ export class SearchStatService {
 
   getStats(){
     return this.stats;
+  }
+
+  getTotal(){
+    return this.total;
   }
 
   regisListener(listener){

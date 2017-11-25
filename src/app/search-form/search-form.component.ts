@@ -26,21 +26,5 @@ export class SearchFormComponent implements OnInit {
     this.searchSubmit.emit(this.searchText);
   }
 
-  onClickBtn(event){
-    event.preventDefault();
-    this.state.addSearchText(this.searchText);
-    console.log("onClick");
-  }
-
-  onClickShow(event){
-    let item:AngularFireObject<Object> = this.db.object("search");
-    
-    item.snapshotChanges().subscribe(action=>{
-      let data = action.payload.val();
-      console.log(action.payload.val());
-      console.log(typeof data);
-    })
-    
-  }
   
 }

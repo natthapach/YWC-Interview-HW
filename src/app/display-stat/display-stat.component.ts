@@ -15,6 +15,8 @@ export class DisplayStatComponent implements OnInit {
       this.stats = statsInfo["stats"];
       this.total = statsInfo["total"];
     });
+    this.stats = this.statService.getStats();
+    this.total = this.statService.getTotal();
   }
 
   ngOnInit() {

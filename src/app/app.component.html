@@ -12,8 +12,27 @@
   
 </div> -->
 <!-- <app-display-result></app-display-result> -->
-<div class="container" style="background: #dddddd">
-  <a class="btn btn-primary" routerLink="/stat">stat</a>
+<div class="container" style="padding: 0">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="">
+      <b>YWC 15<sup>th</sup></b>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/result">Result</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/stat">Statistic</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="container" style="background: #ddd">
   <router-outlet></router-outlet>
 </div>
 
