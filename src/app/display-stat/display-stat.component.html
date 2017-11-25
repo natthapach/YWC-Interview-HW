@@ -1,3 +1,8 @@
-<p>
+<div>
   display-stat works!
-</p>
+  <ul>
+    <li *ngFor="let s of stats">
+      {{ s.word }} {{ s.amt }} {{ total }}
+    </li>
+  </ul>
+</div>
